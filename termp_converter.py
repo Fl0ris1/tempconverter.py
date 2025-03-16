@@ -1,24 +1,29 @@
 from tkinter import *
+import tkinter.font as font
 
 root=Tk()
+font1=font.Font(family="consolas",weight="bold")
 
 root.geometry("500x250")
 root.title("Temp Converter")
 root.config(background="#99C2A2")
-lbl_heading=Label(root,text="Celcius --> Farenheit", font=("consolas",15,"bold"),bg="#99C2A2",fg="#32908F")
+lbl_heading=Label(root,text="Celcius --> Farenheit", font=(font1,15),bg="#99C2A2",fg="#32908F")
 
-lbl_heading.pack()
-frame=Frame(root)
-frame.pack(pady=20)
+lbl_heading.place(x=150,y=15)
+#frame=Frame(root)
+#frame.pack(pady=20)
 
+lbl_input=Label(root,text="Insert your desired temperature in celcius:", font=(font1,12),bg="#99C2A2",fg="#12664F")
+lbl_input.place(x=20,y=60)
 
-lbl_input=Label(frame,text="Insert your desired temperature in celcius:", font=("consolas",10,"bold",),bg="#99C2A2",fg="#12664F")
-lbl_input.grid(row=0,column=0)
+input_celcius=Entry(root)
+input_celcius.place(x=325,y=63)
 
-input_celcius=Entry(frame)
-input_celcius.grid(row=1,column=0)
+lbl_error=Label(root,text="Please enter a valid input",font=(font1,8),bg="#99C2A2",fg="red")
 
-lbl_error=Label(frame,text="Please enter a valid input",font=("consolas",8,"bold"),bg="#99C2A2",fg="red")
+lbl_output=Label(root,font=(font,12),bg="#99C2A2",fg="#000000")
+lbl_output.place(x=150,y=110)
 
-
+convert=Button(root,text="Convert temperature",font=(font1,12),bg="#202C39",fg="#B1DDF1",padx=20,pady=10)
+convert.place(x=160,y=130)
 root.mainloop()
